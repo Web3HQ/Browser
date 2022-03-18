@@ -1,9 +1,12 @@
 const {BrowserWindow, app} = require('electron');
-const Store = require('../../services/store.service');
+const {startMessagingAgent} = require('./messaging');
+const {AppMenu} = require('./menus/main');
+const Store = require('../services/store.service');
 const path = require('path');
 
-class MainWindow extends BrowserWindow {
+class AppWindow extends BrowserWindow {
 	constructor() {
+
 		const store = new Store({
 			// We'll call our data file 'user-preferences'
 			configName: 'window-state',
@@ -15,12 +18,11 @@ class MainWindow extends BrowserWindow {
 		let { width, height } = store.get('windowBounds');
 		
 		let iconPath = path.join(app.getAppPath(), '/browser/assets/icons/icon.png');
-		let preloadScript = path.join(app.getAppPath(), '/browser/preload.js');
-		
+
 		super({
 			width,
 			height,
-			title: app.name,
+			title: app.title,
 			titleBarStyle: 'hidden',
 			frame: false,
 			icon: iconPath,
@@ -28,18 +30,24 @@ class MainWindow extends BrowserWindow {
 			minHeight: 350,
 			minWidth: 485,
 			webPreferences: {
-				preload: preloadScript,
-				webviewTag: true
+				webviewTag: true,
+				nodeIntegration: true,
+				plugins: true,
+				webSecurity: true,
+				javascript: true,
 			}
-		});
+		});    
+        
 		let win = this;
-
+        
+		startMessagingAgent();
+		
 		if(store.get('isMaximised')){
 			win.maximize();
 		}
-	
-		win.removeMenu();
-		win.loadFile(`${path.join(app.getAppPath(), '/browser/index.html')}`);
+
+		win.setMenu(AppMenu(win));
+		win.loadFile(`${path.join(app.getAppPath(), '/browser/renderer/index.html')}`);
 	
 		win.once('ready-to-show', win.show);
 
@@ -59,6 +67,7 @@ class MainWindow extends BrowserWindow {
 			store.set('isMaximised', win.isMaximized());
 		});
 	}
+    
 }
 
-module.exports.MainWindow = MainWindow;
+module.exports.AppWindow = AppWindow;

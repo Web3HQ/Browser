@@ -12,10 +12,13 @@
   "main": "main.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json . --ext .js --fix",
-    "debug": "nodemon --exec electron .",
+    "dev": "nodemon --exec electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --mac --windows --linux",
+    "release": "electron-builder --mac --windows --linux --publish always",
+    "start": "electron ."
   },
   "files": [
     "*.js",
@@ -75,6 +78,7 @@
   },
   "dependencies": {
     "dexie": "^3.0.1",
+    "electron-is-dev": "^1.2.0",
     "feather-icons": "^4.28.0",
     "publicsuffixlist": "^0.3.0"
   },

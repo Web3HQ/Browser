@@ -4,9 +4,12 @@
 # OhHai Browser
 
 <a href="https://github.com/OhHaiBrowser/Browser/releases"> ![GitHub All Releases](https://img.shields.io/github/downloads/OhHaiBrowser/Browser/total) </a>
-<a href="https://discord.gg/Q8QAdTs"> ![Discord](https://img.shields.io/discord/702441664995917935?label=Discord) </a>
+![GitHub stars](https://img.shields.io/github/stars/ohhaibrowser/browser)
+![GitHub contributors](https://img.shields.io/github/contributors/ohhaibrowser/browser)
+<a href="https://discord.gg/Q8QAdTs">![Discord](https://discordapp.com/api/guilds/702441664995917935/widget.png)</a>
 
-A browser built on top of `Electron` using nothing but pure web technologies.
+
+A productivity focused web browser built on top of `Electron` using nothing but pure web technologies.
 
 ![Browser interface](https://user-images.githubusercontent.com/19557485/80795370-34793200-8b94-11ea-9a1a-b3be1f5e9f88.png)
 
@@ -19,6 +22,10 @@ A browser built on top of `Electron` using nothing but pure web technologies.
 - **Minimal UI** - The simplest we could possible make the browser without causing more clicks. 
 
 
+# Issues, Support and Community
+Create an issue [here](https://github.com/OhHaiBrowser/Browser/issues/new). Get support and more via our discord server which you can join by clicking the banner below.
+
+<a href="https://discord.gg/Q8QAdTs">![Discord](https://discordapp.com/api/guilds/702441664995917935/widget.png?style=banner2)</a>
 
 # Contributing
 If you find any bugs or want to improve OhHai Browser please feel free to submit a pull request, [open an issue](https://github.com/OhHaiBrowser/Browser/issues/new) or send a homing pigeon. OhHai Browser is under constant development meaning bugs may happen from time to time (we're only human!). It would be great if you could point these our or even help us defeat them.
